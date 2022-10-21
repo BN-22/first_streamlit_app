@@ -1,4 +1,4 @@
-simport streamlit as sl
+import streamlit as sl
 
 sl.title('My Mom''s New Healthy Diner')
 
