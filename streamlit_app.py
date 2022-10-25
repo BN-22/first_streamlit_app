@@ -4,7 +4,7 @@ import requests as req
 
 my_fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list = my_fruit_list.set_index('Fruit')
-fruityvice_response = req.get("https://fruityvice.com/api/fruit/watermelon")
+fruityvice_response = req.get("https://fruityvice.com/api/fruit/" + "kiwi")
 
 sl.title("My Mom's New Healthy Diner")
 
