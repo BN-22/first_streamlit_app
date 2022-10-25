@@ -23,4 +23,8 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 # Display the table on the page.
 sl.dataframe(fruits_to_show)
 sl.header("Fruityvice Fruit Advice!")
-sl.text(fruityvice_response.json())
+# sl.text(fruityvice_response.json()) # just writes the data to the screen
+# takes the json version of the response and normalizes it
+fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+# outputs it as a table
+streamlit.dataframe(fruityvice_normalized)
