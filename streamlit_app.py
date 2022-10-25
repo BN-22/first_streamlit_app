@@ -4,7 +4,7 @@ import requests as req
 
 my_fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list = my_fruit_list.set_index('Fruit')
-fruityvice_response = req.get("https://fruityvice.com/api/fruit/" + "kiwi")
+
 
 sl.title("My Mom's New Healthy Diner")
 
@@ -25,6 +25,7 @@ sl.dataframe(fruits_to_show)
 sl.header("Fruityvice Fruit Advice!")
 # sl.text(fruityvice_response.json()) # just writes the data to the screen
 fruit_choice = sl.text_input('What fruit would you like information about?','Kiwi')
+fruityvice_response = req.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 sl.write('The user entered ', fruit_choice)
 
 # takes the json version of the response and normalizes it
