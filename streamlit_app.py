@@ -24,6 +24,8 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 sl.dataframe(fruits_to_show)
 sl.header("Fruityvice Fruit Advice!")
 # sl.text(fruityvice_response.json()) # just writes the data to the screen
+fruit_choice = sl.text_input('What fruit would you like information about?','Kiwi')
+sl.write('The user entered ', fruit_choice)
 
 # takes the json version of the response and normalizes it
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
