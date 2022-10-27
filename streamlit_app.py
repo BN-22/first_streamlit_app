@@ -2,6 +2,7 @@ import streamlit as sl
 import pandas as pd
 import requests as req
 import snowflake.connector
+from urllib.error import URLError
 
 my_fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list = my_fruit_list.set_index('Fruit')
@@ -33,6 +34,8 @@ sl.write('The user entered ', fruit_choice)
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 # outputs it as a table
 sl.dataframe(fruityvice_normalized)
+
+sl.stop()
 
 my_cnx = snowflake.connector.connect(**sl.secrets["snowflake"])
 my_cur = my_cnx.cursor()
