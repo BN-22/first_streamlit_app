@@ -40,3 +40,8 @@ my_cur.execute("select * from fruit_load_list")
 my_data_rows = my_cur.fetchall()
 sl.header("The fruit load list contains:")
 sl.dataframe(my_data_rows)
+
+
+add_my_fruit = sl.text_input('What fruit would you like to add?')
+fruityvice_response = req.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+sl.write('Thanks for adding ', add_my_fruit)
