@@ -27,8 +27,8 @@ sl.dataframe(fruits_to_show)
 # create the function
 def get_fruityvice_data(this_fruit_choice):
   fruityvice_response = req.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
-    fruityvice_normalized = pd.json_normalize(fruityvice_response.json()) # takes the json version of the response and normalizes it
-    return fruityvice_normalized
+  fruityvice_normalized = pd.json_normalize(fruityvice_response.json()) # takes the json version of the response and normalizes it
+  return fruityvice_normalized
 
 # New section to display fruityvice api responce
 sl.header("Fruityvice Fruit Advice!")
