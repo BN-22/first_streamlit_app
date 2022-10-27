@@ -56,10 +56,22 @@ if sl.button('Get Fruit Load List'):
   my_cnx = snowflake.connector.connect(**sl.secrets["snowflake"])
   my_data_rows = get_fruit_load_list()
   sl.dataframe(my_data_rows)
-sl.stop()
+  
+# sl.stop()
+
+# allow the end user to add fruit to the list
+def insert_row_snowflake(new_fruit):
+  with my_cnx.cursor() as my_cur:
+    my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+    return 'Thanks for adding ' + new_fruit
 
 add_my_fruit = sl.text_input('What fruit would you like to add?')
-fruityvice_response = req.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-sl.write('Thanks for adding ', add_my_fruit)
+if sl.button('Add a Fruit to the List'):
+  my_cnx = snowflake.connector.connect(**sl.secrets["snowflake"])
+  back_from_function = insert_row_snowflake(add_my_fruit)
+  
+#fruityvice_response = req.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+# sl.write('Thanks for adding ', add_my_fruit)
+
+
