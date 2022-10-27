@@ -45,3 +45,5 @@ sl.dataframe(my_data_rows)
 add_my_fruit = sl.text_input('What fruit would you like to add?')
 fruityvice_response = req.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 sl.write('Thanks for adding ', add_my_fruit)
+
+my_cur.execute("insert into fruit_load_list values ('from streamlit')")
